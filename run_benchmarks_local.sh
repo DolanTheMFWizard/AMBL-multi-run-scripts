@@ -8,38 +8,59 @@ MYDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 echo "Executing benchmarks..."
 
 # AWS_ARGS=--extra_args "-m aws -p 1500"
-DEFAULT_ARGS="--git_user Innixma --workspace benchmark --nohup"
+DEFAULT_ARGS="--git_user DolanTheMFWizard --workspace benchmark --nohup"
 
 BENCHMARK=ag
-BRANCH="ag-2021_10_22_cat"
-CONSTRAINT=1h8c
-
-FRAMEWORK="AutoGluon_bestquality:latest"
-CUSTOM_ARGS="--framework $FRAMEWORK --benchmark $BENCHMARK --constraint $CONSTRAINT"
-$MYDIR/run_benchmark_local.sh --branch $BRANCH $CUSTOM_ARGS $DEFAULT_ARGS --extra_args "-m aws -p 1500"
-
-sleep 3600
-
-FRAMEWORK="AutoGluon:latest"
-CUSTOM_ARGS="--framework $FRAMEWORK --benchmark $BENCHMARK --constraint $CONSTRAINT"
-$MYDIR/run_benchmark_local.sh --branch $BRANCH $CUSTOM_ARGS $DEFAULT_ARGS --extra_args "-m aws -p 1500"
-
-sleep 3600
-
+BRANCH="acc"
 CONSTRAINT=4h8c
 
-FRAMEWORK="AutoGluon_bestquality:latest"
+FRAMEWORK="AG_Ration:latest"
 CUSTOM_ARGS="--framework $FRAMEWORK --benchmark $BENCHMARK --constraint $CONSTRAINT"
 $MYDIR/run_benchmark_local.sh --branch $BRANCH $CUSTOM_ARGS $DEFAULT_ARGS --extra_args "-m aws -p 1500"
 
 sleep 3600
 
-FRAMEWORK="AutoGluon:latest"
+FRAMEWORK="PL_Ration:latest"
 CUSTOM_ARGS="--framework $FRAMEWORK --benchmark $BENCHMARK --constraint $CONSTRAINT"
 $MYDIR/run_benchmark_local.sh --branch $BRANCH $CUSTOM_ARGS $DEFAULT_ARGS --extra_args "-m aws -p 1500"
 
 sleep 3600
 
+FRAMEWORK="AG_Ration_large_test_SS:latest"
+CUSTOM_ARGS="--framework $FRAMEWORK --benchmark $BENCHMARK --constraint $CONSTRAINT"
+$MYDIR/run_benchmark_local.sh --branch $BRANCH $CUSTOM_ARGS $DEFAULT_ARGS --extra_args "-m aws -p 1500"
+
+sleep 3600
+
+FRAMEWORK="PL_Ration_large_test_SS:latest"
+CUSTOM_ARGS="--framework $FRAMEWORK --benchmark $BENCHMARK --constraint $CONSTRAINT"
+$MYDIR/run_benchmark_local.sh --branch $BRANCH $CUSTOM_ARGS $DEFAULT_ARGS --extra_args "-m aws -p 1500"
+
+sleep 3600
+
+FRAMEWORK="PL_Ration_large_test_transductive:latest"
+CUSTOM_ARGS="--framework $FRAMEWORK --benchmark $BENCHMARK --constraint $CONSTRAINT"
+$MYDIR/run_benchmark_local.sh --branch $BRANCH $CUSTOM_ARGS $DEFAULT_ARGS --extra_args "-m aws -p 1500"
+
+sleep 3600
+
+FRAMEWORK="AG_Ration_large_test_transductive:latest"
+CUSTOM_ARGS="--framework $FRAMEWORK --benchmark $BENCHMARK --constraint $CONSTRAINT"
+$MYDIR/run_benchmark_local.sh --branch $BRANCH $CUSTOM_ARGS $DEFAULT_ARGS --extra_args "-m aws -p 1500"
+
+sleep 3600
+
+FRAMEWORK="AG_Ration_best:latest"
+CUSTOM_ARGS="--framework $FRAMEWORK --benchmark $BENCHMARK --constraint $CONSTRAINT"
+$MYDIR/run_benchmark_local.sh --branch $BRANCH $CUSTOM_ARGS $DEFAULT_ARGS --extra_args "-m aws -p 1500"
+
+sleep 3600
+
+FRAMEWORK="PL_Ration_best:latest"
+CUSTOM_ARGS="--framework $FRAMEWORK --benchmark $BENCHMARK --constraint $CONSTRAINT"
+$MYDIR/run_benchmark_local.sh --branch $BRANCH $CUSTOM_ARGS $DEFAULT_ARGS --extra_args "-m aws -p 1500"
+
+sleep 3600
 
 #
 #FRAMEWORK="AutoGluon:latest"
