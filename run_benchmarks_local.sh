@@ -11,7 +11,7 @@ echo "Executing benchmarks..."
 DEFAULT_ARGS="--git_user DolanTheMFWizard --workspace benchmark --nohup"
 
 BENCHMARK=ag
-BRANCH="nll"
+BRANCH="acc_calibrate"
 CONSTRAINT=4h8c
 
 FRAMEWORK="AutoGluon:latest"
