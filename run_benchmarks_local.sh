@@ -11,11 +11,11 @@ echo "Executing benchmarks..."
 DEFAULT_ARGS="--git_user DolanTheMFWizard --workspace benchmark --nohup"
 
 BENCHMARK=test
-BRANCH="nll"
+BRANCH="master"
 CONSTRAINT=4h8c
 
-frameworks_array=( "AutoGluon" "Vector_Scaling" "Refit_Full" "Temperature_Scaling"
-                   "AutoGluon_bestquality" "TempScaling_bestquality" "Vector_Scaling_best" )
+frameworks_array=( "AG_Mix-Up-Cate" "Mix-Up-Cate" 
+                   "AG_Mix-Up-Cate_best" "Mix-Up-Cate_best" )
 
 
 for framework in frameworks_array
