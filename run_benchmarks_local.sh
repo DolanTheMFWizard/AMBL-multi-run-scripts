@@ -14,216 +14,25 @@ BENCHMARK=test
 BRANCH="acc"
 CONSTRAINT=4h8c
 
-FRAMEWORK="AG_Ration:latest"
-CUSTOM_ARGS="--framework $FRAMEWORK --benchmark $BENCHMARK --constraint $CONSTRAINT"
-$MYDIR/run_benchmark_local.sh --branch $BRANCH $CUSTOM_ARGS $DEFAULT_ARGS --extra_args 
-
-sleep 3600
-
-FRAMEWORK="PL_Ration:latest"
-CUSTOM_ARGS="--framework $FRAMEWORK --benchmark $BENCHMARK --constraint $CONSTRAINT"
-$MYDIR/run_benchmark_local.sh --branch $BRANCH $CUSTOM_ARGS $DEFAULT_ARGS --extra_args 
-
-sleep 3600
-
-FRAMEWORK="AG_Ration_large_test_SS:latest"
-CUSTOM_ARGS="--framework $FRAMEWORK --benchmark $BENCHMARK --constraint $CONSTRAINT"
-$MYDIR/run_benchmark_local.sh --branch $BRANCH $CUSTOM_ARGS $DEFAULT_ARGS --extra_args 
-
-sleep 3600
-
-FRAMEWORK="PL_Ration_large_test_SS:latest"
-CUSTOM_ARGS="--framework $FRAMEWORK --benchmark $BENCHMARK --constraint $CONSTRAINT"
-$MYDIR/run_benchmark_local.sh --branch $BRANCH $CUSTOM_ARGS $DEFAULT_ARGS --extra_args 
-
-sleep 3600
-
-FRAMEWORK="PL_Ration_large_test_transductive:latest"
-CUSTOM_ARGS="--framework $FRAMEWORK --benchmark $BENCHMARK --constraint $CONSTRAINT"
-$MYDIR/run_benchmark_local.sh --branch $BRANCH $CUSTOM_ARGS $DEFAULT_ARGS --extra_args 
-
-sleep 3600
-
-FRAMEWORK="AG_Ration_large_test_transductive:latest"
-CUSTOM_ARGS="--framework $FRAMEWORK --benchmark $BENCHMARK --constraint $CONSTRAINT"
-$MYDIR/run_benchmark_local.sh --branch $BRANCH $CUSTOM_ARGS $DEFAULT_ARGS --extra_args 
-
-sleep 3600
-
-FRAMEWORK="AG_Ration_best:latest"
-CUSTOM_ARGS="--framework $FRAMEWORK --benchmark $BENCHMARK --constraint $CONSTRAINT"
-$MYDIR/run_benchmark_local.sh --branch $BRANCH $CUSTOM_ARGS $DEFAULT_ARGS --extra_args 
-
-sleep 3600
-
-FRAMEWORK="PL_Ration_best:latest"
-CUSTOM_ARGS="--framework $FRAMEWORK --benchmark $BENCHMARK --constraint $CONSTRAINT"
-$MYDIR/run_benchmark_local.sh --branch $BRANCH $CUSTOM_ARGS $DEFAULT_ARGS --extra_args 
-
-sleep 3600
-
-#
-#FRAMEWORK="AutoGluon:latest"
-#CUSTOM_ARGS="--framework $FRAMEWORK --benchmark $BENCHMARK --constraint $CONSTRAINT"
-#$MYDIR/run_benchmark_local.sh --branch $BRANCH $CUSTOM_ARGS $DEFAULT_ARGS --extra_args 
-#
-#sleep 3600
-#
-#FRAMEWORK="AutoGluon_prune:latest"
-#CUSTOM_ARGS="--framework $FRAMEWORK --benchmark $BENCHMARK --constraint $CONSTRAINT"
-#$MYDIR/run_benchmark_local.sh --branch $BRANCH $CUSTOM_ARGS $DEFAULT_ARGS --extra_args 
-#
-#sleep 3600
-#
-#CONSTRAINT=4h8c
-#
-#FRAMEWORK="AutoGluon_bestquality:latest"
-#CUSTOM_ARGS="--framework $FRAMEWORK --benchmark $BENCHMARK --constraint $CONSTRAINT"
-#$MYDIR/run_benchmark_local.sh --branch $BRANCH $CUSTOM_ARGS $DEFAULT_ARGS --extra_args 
-#
-#sleep 3600
-#
-#FRAMEWORK="AutoGluon_bestquality_prune:latest"
-#CUSTOM_ARGS="--framework $FRAMEWORK --benchmark $BENCHMARK --constraint $CONSTRAINT"
-#$MYDIR/run_benchmark_local.sh --branch $BRANCH $CUSTOM_ARGS $DEFAULT_ARGS --extra_args 
-#
-#sleep 3600
-#
-#FRAMEWORK="AutoGluon:latest"
-#CUSTOM_ARGS="--framework $FRAMEWORK --benchmark $BENCHMARK --constraint $CONSTRAINT"
-#$MYDIR/run_benchmark_local.sh --branch $BRANCH $CUSTOM_ARGS $DEFAULT_ARGS --extra_args 
-#
-#sleep 3600
-#
-#FRAMEWORK="AutoGluon_prune:latest"
-#CUSTOM_ARGS="--framework $FRAMEWORK --benchmark $BENCHMARK --constraint $CONSTRAINT"
-#$MYDIR/run_benchmark_local.sh --branch $BRANCH $CUSTOM_ARGS $DEFAULT_ARGS --extra_args 
-#
-#sleep 3600
-
-#FRAMEWORK="AutoGluon_hq:latest"
-#CUSTOM_ARGS="--framework $FRAMEWORK --benchmark $BENCHMARK --constraint $CONSTRAINT"
-#$MYDIR/run_benchmark_local.sh --branch $BRANCH $CUSTOM_ARGS $DEFAULT_ARGS --extra_args 
-#
-#sleep 3600
-
-#FRAMEWORK="AutoGluon_gq:latest"
-#CUSTOM_ARGS="--framework $FRAMEWORK --benchmark $BENCHMARK --constraint $CONSTRAINT"
-#$MYDIR/run_benchmark_local.sh --branch $BRANCH $CUSTOM_ARGS $DEFAULT_ARGS --extra_args 
-#
-#sleep 3600
-#
-#FRAMEWORK="AutoGluon:latest"
-#CUSTOM_ARGS="--framework $FRAMEWORK --benchmark $BENCHMARK --constraint $CONSTRAINT"
-#$MYDIR/run_benchmark_local.sh --branch $BRANCH $CUSTOM_ARGS $DEFAULT_ARGS --extra_args 
-#
-#sleep 3600
-#
-#CONSTRAINT=4h8c
-#
-#FRAMEWORK="AutoGluon_bestquality:latest"
-#CUSTOM_ARGS="--framework $FRAMEWORK --benchmark $BENCHMARK --constraint $CONSTRAINT"
-#$MYDIR/run_benchmark_local.sh --branch $BRANCH $CUSTOM_ARGS $DEFAULT_ARGS --extra_args 
-#
-#sleep 3600
-#
-#FRAMEWORK="AutoGluon_hq:latest"
-#CUSTOM_ARGS="--framework $FRAMEWORK --benchmark $BENCHMARK --constraint $CONSTRAINT"
-#$MYDIR/run_benchmark_local.sh --branch $BRANCH $CUSTOM_ARGS $DEFAULT_ARGS --extra_args 
-#
-#sleep 3600
-#
-#FRAMEWORK="AutoGluon_gq:latest"
-#CUSTOM_ARGS="--framework $FRAMEWORK --benchmark $BENCHMARK --constraint $CONSTRAINT"
-#$MYDIR/run_benchmark_local.sh --branch $BRANCH $CUSTOM_ARGS $DEFAULT_ARGS --extra_args 
-#
-#sleep 3600
-#
-#FRAMEWORK="AutoGluon:latest"
-#CUSTOM_ARGS="--framework $FRAMEWORK --benchmark $BENCHMARK --constraint $CONSTRAINT"
-#$MYDIR/run_benchmark_local.sh --branch $BRANCH $CUSTOM_ARGS $DEFAULT_ARGS --extra_args 
-#
-#sleep 3600
+frameworks_array = ("AG_Ration", "PL_Ration", 
+                    "AG_Ration_large_test_SS", "PL_Ration_large_test_SS", 
+                    "AG_Ration_large_test_transductive", "PL_Ration_large_test_transductive",
+                    "AG_best_Ration_large_test_SS", "PL_best_Ration_large_test_SS",
+                    "AG_best_Ration_large_test_transductive", "PL_best_Ration_large_test_transductive",
+                    "PL_Ration_split_transductive",
+                    "PL_Ration_split_SS",
+                    "PL_best_Ration_split_transductive",
+                    "PL_best_Ration_split_SS"
+                    )
 
 
-#FRAMEWORK="AutoGluon_bestquality:latest"
-#CUSTOM_ARGS="--framework $FRAMEWORK --benchmark $BENCHMARK --constraint $CONSTRAINT"
-#$MYDIR/run_benchmark_local.sh --branch $BRANCH $CUSTOM_ARGS $DEFAULT_ARGS --extra_args 
-#
-#sleep 10800
+for framework in frameworks_array
+do
+    FRAMEWORK="${framework}:latest"
+    CUSTOM_ARGS="--framework $FRAMEWORK --benchmark $BENCHMARK --constraint $CONSTRAINT"
+    $MYDIR/run_benchmark_local.sh --branch $BRANCH $CUSTOM_ARGS $DEFAULT_ARGS --extra_args 
 
-#FRAMEWORK="AutoGluon"
-#CUSTOM_ARGS="--framework $FRAMEWORK --benchmark $BENCHMARK --constraint $CONSTRAINT"
-#$MYDIR/run_benchmark_local.sh --branch $BRANCH $CUSTOM_ARGS $DEFAULT_ARGS --extra_args 
-#
-#sleep 10800
-#
-#FRAMEWORK="AutoGluon_bestquality"
-#CUSTOM_ARGS="--framework $FRAMEWORK --benchmark $BENCHMARK --constraint $CONSTRAINT"
-#$MYDIR/run_benchmark_local.sh --branch $BRANCH $CUSTOM_ARGS $DEFAULT_ARGS --extra_args 
-#
-#sleep 3600
-#
-#FRAMEWORK="mljarsupervised"
-#CUSTOM_ARGS="--framework $FRAMEWORK --benchmark $BENCHMARK --constraint $CONSTRAINT"
-#$MYDIR/run_benchmark_local.sh --branch $BRANCH $CUSTOM_ARGS $DEFAULT_ARGS --extra_args 
-#
-#sleep 10800
-#
-#FRAMEWORK="mljarsupervised_compete"
-#CUSTOM_ARGS="--framework $FRAMEWORK --benchmark $BENCHMARK --constraint $CONSTRAINT"
-#$MYDIR/run_benchmark_local.sh --branch $BRANCH $CUSTOM_ARGS $DEFAULT_ARGS --extra_args 
-#
-#sleep 3600
-##
-#FRAMEWORK="lightautoml"
-#CUSTOM_ARGS="--framework $FRAMEWORK --benchmark $BENCHMARK --constraint $CONSTRAINT"
-#$MYDIR/run_benchmark_local.sh --branch $BRANCH $CUSTOM_ARGS $DEFAULT_ARGS --extra_args 
-#
-#sleep 3600
-##
-#FRAMEWORK="H2OAutoML"
-#CUSTOM_ARGS="--framework $FRAMEWORK --benchmark $BENCHMARK --constraint $CONSTRAINT"
-#$MYDIR/run_benchmark_local.sh --branch $BRANCH $CUSTOM_ARGS $DEFAULT_ARGS --extra_args 
-#
-#sleep 3600
-##
-#FRAMEWORK="autosklearn2"
-#CUSTOM_ARGS="--framework $FRAMEWORK --benchmark $BENCHMARK --constraint $CONSTRAINT"
-#$MYDIR/run_benchmark_local.sh --branch $BRANCH $CUSTOM_ARGS $DEFAULT_ARGS --extra_args 
-#
-#sleep 3600
-##
-#FRAMEWORK="flaml"
-#CUSTOM_ARGS="--framework $FRAMEWORK --benchmark $BENCHMARK --constraint $CONSTRAINT"
-#$MYDIR/run_benchmark_local.sh --branch $BRANCH $CUSTOM_ARGS $DEFAULT_ARGS --extra_args 
-#
-#sleep 3600
-###
-#FRAMEWORK="TPOT"
-#CUSTOM_ARGS="--framework $FRAMEWORK --benchmark $BENCHMARK --constraint $CONSTRAINT"
-#$MYDIR/run_benchmark_local.sh --branch $BRANCH $CUSTOM_ARGS $DEFAULT_ARGS --extra_args 
-#
-#sleep 3600
-#
-#FRAMEWORK="autoxgboost"
-#CUSTOM_ARGS="--framework $FRAMEWORK --benchmark $BENCHMARK --constraint $CONSTRAINT"
-#$MYDIR/run_benchmark_local.sh --branch $BRANCH $CUSTOM_ARGS $DEFAULT_ARGS --extra_args 
-#
-#sleep 3600
-#
-#FRAMEWORK="MLNet"
-#CUSTOM_ARGS="--framework $FRAMEWORK --benchmark $BENCHMARK --constraint $CONSTRAINT"
-#$MYDIR/run_benchmark_local.sh --branch $BRANCH $CUSTOM_ARGS $DEFAULT_ARGS --extra_args 
-#
-#sleep 3600
-
-
-#
-#FRAMEWORK="MLPlanWEKA"
-#CUSTOM_ARGS="--framework $FRAMEWORK --benchmark $BENCHMARK --constraint $CONSTRAINT"
-#$MYDIR/run_benchmark_local.sh --branch $BRANCH $CUSTOM_ARGS $DEFAULT_ARGS --extra_args 
-#
-#sleep 10800
+    sleep 1800
+done
 
 echo "All benchmarks executed."
