@@ -18,9 +18,10 @@ frameworks_array=( "AG_Mix-Up-Cate" "Mix-Up-Cate"
                    "AG_Mix-Up-Cate_best" "Mix-Up-Cate_best" )
 
 
-for framework in frameworks_array
+for framework in "${frameworks_array[@]}"
 do
     FRAMEWORK="${framework}:latest"
+    echo FRAMEWORK
     CUSTOM_ARGS="--framework $FRAMEWORK --benchmark $BENCHMARK --constraint $CONSTRAINT"
     $MYDIR/run_benchmark_local.sh --branch $BRANCH $CUSTOM_ARGS $DEFAULT_ARGS --extra_args 
 
