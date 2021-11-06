@@ -10,17 +10,15 @@ echo "Executing benchmarks..."
 # AWS_ARGS=--extra_args 
 DEFAULT_ARGS="--git_user DolanTheMFWizard --workspace benchmark --nohup"
 
-BENCHMARK=test
+BENCHMARK=covertype
 BRANCH="acc"
-CONSTRAINT=4h8c
+CONSTRAINT=1h8c
 
-frameworks_array=( "AG_Ration" "PL_Ration" 
+frameworks_array=( 
 "AG_Ration_large_test_SS" "PL_Ration_large_test_SS" 
 "AG_Ration_large_test_transductive" "PL_Ration_large_test_transductive" 
 "AG_best_Ration_large_test_SS" "PL_best_Ration_large_test_SS" 
-"AG_best_Ration_large_test_transductive" "PL_best_Ration_large_test_transductive" 
-"PL_Ration_split_transductive" "PL_Ration_split_SS" 
-"PL_best_Ration_split_transductive" "PL_best_Ration_split_SS" )
+"AG_best_Ration_large_test_transductive" "PL_best_Ration_large_test_transductive" )
 
 
 for framework in "${frameworks_array[@]}"
@@ -30,7 +28,23 @@ do
     CUSTOM_ARGS="--framework $FRAMEWORK --benchmark $BENCHMARK --constraint $CONSTRAINT"
     $MYDIR/run_benchmark_local.sh --branch $BRANCH $CUSTOM_ARGS $DEFAULT_ARGS
 
-    sleep 1800
+    sleep 3600
+done
+
+split_frameworks_array=(
+    "PL_Ration_split_transductive" "PL_Ration_split_SS" 
+    "PL_best_Ration_split_transductive" "PL_best_Ration_split_SS"
+)
+
+CONSTRAINT=4h8c
+for framework in "${split_frameworks_array[@]}"
+do
+    echo "Running ${framework}"
+    FRAMEWORK="${framework}:latest"
+    CUSTOM_ARGS="--framework $FRAMEWORK --benchmark $BENCHMARK --constraint $CONSTRAINT"
+    $MYDIR/run_benchmark_local.sh --branch $BRANCH $CUSTOM_ARGS $DEFAULT_ARGS
+
+    sleep 7200
 done
 
 echo "All benchmarks executed."
