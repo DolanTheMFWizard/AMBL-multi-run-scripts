@@ -12,7 +12,7 @@ DEFAULT_ARGS="--git_user DolanTheMFWizard --workspace benchmark --nohup"
 
 BENCHMARK=covertype
 BRANCH="acc"
-CONSTRAINT=1h8c
+CONSTRAINT=test
 
 frameworks_array=( 
 "AG_Ration_large_test_SS" "PL_Ration_large_test_SS" 
@@ -28,7 +28,7 @@ do
     CUSTOM_ARGS="--framework $FRAMEWORK --benchmark $BENCHMARK --constraint $CONSTRAINT"
     $MYDIR/run_benchmark_local.sh --branch $BRANCH $CUSTOM_ARGS $DEFAULT_ARGS
 
-    sleep 3600
+    sleep 600
 done
 
 split_frameworks_array=(
@@ -36,7 +36,7 @@ split_frameworks_array=(
     "PL_best_Ration_split_transductive" "PL_best_Ration_split_SS"
 )
 
-CONSTRAINT=4h8c
+CONSTRAINT=1h8c
 for framework in "${split_frameworks_array[@]}"
 do
     echo "Running ${framework}"
@@ -44,7 +44,7 @@ do
     CUSTOM_ARGS="--framework $FRAMEWORK --benchmark $BENCHMARK --constraint $CONSTRAINT"
     $MYDIR/run_benchmark_local.sh --branch $BRANCH $CUSTOM_ARGS $DEFAULT_ARGS
 
-    sleep 7200
+    sleep 3600
 done
 
 echo "All benchmarks executed."
