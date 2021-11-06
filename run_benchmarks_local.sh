@@ -12,7 +12,7 @@ DEFAULT_ARGS="--git_user DolanTheMFWizard --workspace benchmark --nohup"
 
 BENCHMARK=test
 BRANCH="master"
-CONSTRAINT=4h8c
+CONSTRAINT=1h8c
 
 frameworks_array=( "AG_Mix-Up-Cate" "Mix-Up-Cate" 
                    "AG_Mix-Up-Cate_best" "Mix-Up-Cate_best" )
@@ -25,7 +25,7 @@ do
     CUSTOM_ARGS="--framework $FRAMEWORK --benchmark $BENCHMARK --constraint $CONSTRAINT"
     $MYDIR/run_benchmark_local.sh --branch $BRANCH $CUSTOM_ARGS $DEFAULT_ARGS --extra_args 
 
-    sleep 1800
+    sleep 4000
 done
 
 echo "All benchmarks executed."
