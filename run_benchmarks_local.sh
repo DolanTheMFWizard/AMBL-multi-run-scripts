@@ -10,9 +10,9 @@ echo "Executing benchmarks..."
 # AWS_ARGS=--extra_args 
 DEFAULT_ARGS="--git_user DolanTheMFWizard --workspace benchmark --nohup"
 
-BENCHMARK=test
+BENCHMARK=ag
 BRANCH="acc"
-CONSTRAINT=1h8c
+CONSTRAINT=4h8c
 
 frameworks_array=( 
 "AG_Ration_large_test_SS"
@@ -28,7 +28,7 @@ do
     CUSTOM_ARGS="--framework $FRAMEWORK --benchmark $BENCHMARK --constraint $CONSTRAINT"
     $MYDIR/run_benchmark_local.sh --branch $BRANCH $CUSTOM_ARGS $DEFAULT_ARGS "-m aws -p 500"
 
-    sleep 4000
+    sleep 21600
 done
 
 split_frameworks_array=(
@@ -38,7 +38,7 @@ split_frameworks_array=(
     "aux_best_transductive"
 )
 
-CONSTRAINT=4h8c
+CONSTRAINT=24h8c
 for framework in "${split_frameworks_array[@]}"
 do
     echo "Running ${framework}"
@@ -46,7 +46,7 @@ do
     CUSTOM_ARGS="--framework $FRAMEWORK --benchmark $BENCHMARK --constraint $CONSTRAINT"
     $MYDIR/run_benchmark_local.sh --branch $BRANCH $CUSTOM_ARGS $DEFAULT_ARGS
 
-    sleep 3600
+    sleep 30000
 done
 
 echo "All benchmarks executed."
