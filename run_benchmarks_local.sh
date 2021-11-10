@@ -28,7 +28,7 @@ do
     CUSTOM_ARGS="--framework $FRAMEWORK --benchmark $BENCHMARK --constraint $CONSTRAINT"
     $MYDIR/run_benchmark_local.sh --branch $BRANCH $CUSTOM_ARGS $DEFAULT_ARGS "-m aws -p 5000"
 
-    sleep 21600
+    sleep 15800
 done
 
 split_frameworks_array=(
