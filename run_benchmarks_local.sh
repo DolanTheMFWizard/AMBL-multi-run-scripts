@@ -32,10 +32,10 @@ do
 done
 
 split_frameworks_array=(
-    "aux_SS" 
-    "aux_transductive" 
-    "aux_best_SS" 
-    "aux_best_transductive"
+    "Aux_SS" 
+    "Aux_transductive" 
+    "Aux_best_SS" 
+    "Aux_best_transductive"
 )
 
 CONSTRAINT=24h8c
