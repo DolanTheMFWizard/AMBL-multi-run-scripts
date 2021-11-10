@@ -12,30 +12,34 @@ DEFAULT_ARGS="--git_user DolanTheMFWizard --workspace benchmark --nohup"
 
 BENCHMARK=test
 BRANCH="acc"
-CONSTRAINT=1h8c
+# CONSTRAINT=1h8c
 
-frameworks_array=( 
-"AG_Ration_large_test_SS"
-"AG_Ration_large_test_transductive"
-"AG_best_Ration_large_test_SS"
-"AG_best_Ration_large_test_transductive" )
+# frameworks_array=( 
+# "AG_Ration_large_test_SS"
+# "AG_Ration_large_test_transductive"
+# "AG_best_Ration_large_test_SS"
+# "AG_best_Ration_large_test_transductive" )
 
 
-for framework in "${frameworks_array[@]}"
-do
-    echo "Running ${framework}"
-    FRAMEWORK="${framework}:latest"
-    CUSTOM_ARGS="--framework $FRAMEWORK --benchmark $BENCHMARK --constraint $CONSTRAINT"
-    $MYDIR/run_benchmark_local.sh --branch $BRANCH $CUSTOM_ARGS $DEFAULT_ARGS "-m aws -p 500"
+# for framework in "${frameworks_array[@]}"
+# do
+#     echo "Running ${framework}"
+#     FRAMEWORK="${framework}:latest"
+#     CUSTOM_ARGS="--framework $FRAMEWORK --benchmark $BENCHMARK --constraint $CONSTRAINT"
+#     $MYDIR/run_benchmark_local.sh --branch $BRANCH $CUSTOM_ARGS $DEFAULT_ARGS "-m aws -p 500"
 
-    sleep 4000
-done
+#     sleep 4000
+# done
 
 split_frameworks_array=(
-    "aux_SS" 
-    "aux_transductive" 
-    "aux_best_SS" 
-    "aux_best_transductive"
+    # "Aux_SS" 
+    # "Aux_transductive" 
+    # "Aux_best_SS" 
+    # "Aux_best_transductive"
+    "PL_Ration_split_transductive"
+    "PL_Ration_split_SS"
+    "PL_best_Ration_split_transductive"
+    "PL_best_Ration_split_SS"
 )
 
 CONSTRAINT=4h8c
@@ -46,7 +50,7 @@ do
     CUSTOM_ARGS="--framework $FRAMEWORK --benchmark $BENCHMARK --constraint $CONSTRAINT"
     $MYDIR/run_benchmark_local.sh --branch $BRANCH $CUSTOM_ARGS $DEFAULT_ARGS
 
-    sleep 3600
+    sleep 120
 done
 
 echo "All benchmarks executed."
