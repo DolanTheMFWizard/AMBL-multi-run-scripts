@@ -15,10 +15,12 @@ BRANCH="nll"
 CONSTRAINT=4h8c
 
 frameworks_array=( 
-    'AG_VS'
-    'Vector_Scaling'
-    'AG_best_VS'
-    'Vector_Scaling_best'
+#    'AG_VS'
+#    'Vector_Scaling'
+#    'AG_best_VS'
+#    'Vector_Scaling_best'
+    'Dirichlet_Cal'
+    'Dirichlet_Cal_best'
 )
 
 for framework in "${frameworks_array[@]}"
