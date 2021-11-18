@@ -32,17 +32,19 @@ CONSTRAINT=1h8c
 # done
 
 split_frameworks_array=(
-    "Ensemble_SS" 
-    "Ensemble_transductive" 
-    "Ensemble_best_SS" 
-    "Ensemble_best_transductive"
-    "PL_Ration_split_transductive"
-    "PL_Ration_split_SS"
-    "PL_best_Ration_split_transductive"
-    "PL_best_Ration_split_SS"
+    # "Ensemble_SS" 
+    # "Ensemble_transductive" 
+    # "Ensemble_best_SS" 
+    # "Ensemble_best_transductive"
+    # "PL_Ration_split_transductive"
+    # "PL_Ration_split_SS"
+    # "PL_best_Ration_split_transductive"
+    # "PL_best_Ration_split_SS"
+    "Weighted_Ensemble_best_SS"
+    "Weighted_Ensemble_best_transductive"
 )
 
-CONSTRAINT=24h8c
+CONSTRAINT=4h8c
 for framework in "${split_frameworks_array[@]}"
 do
     echo "Running ${framework}"
