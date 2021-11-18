@@ -12,8 +12,7 @@ DEFAULT_ARGS="--git_user DolanTheMFWizard --workspace benchmark --nohup"
 
 BENCHMARK=ag
 BRANCH="acc"
-CONSTRAINT=4h8c
-# CONSTRAINT=1h8c
+CONSTRAINT=1h8c
 
 # frameworks_array=( 
 # "AG_Ration_large_test_SS"
@@ -27,16 +26,16 @@ CONSTRAINT=4h8c
 #     echo "Running ${framework}"
 #     FRAMEWORK="${framework}:latest"
 #     CUSTOM_ARGS="--framework $FRAMEWORK --benchmark $BENCHMARK --constraint $CONSTRAINT"
-#     $MYDIR/run_benchmark_local.sh --branch $BRANCH $CUSTOM_ARGS $DEFAULT_ARGS "-m aws -p 500"
+#     $MYDIR/run_benchmark_local.sh --branch $BRANCH $CUSTOM_ARGS $DEFAULT_ARGS --extra_args "-m aws -p 5000"
 
-#     sleep 4000
+#     sleep 7200
 # done
 
 split_frameworks_array=(
-    # "Aux_SS" 
-    # "Aux_transductive" 
-    # "Aux_best_SS" 
-    # "Aux_best_transductive"
+    "Ensemble_SS" 
+    "Ensemble_transductive" 
+    "Ensemble_best_SS" 
+    "Ensemble_best_transductive"
     "PL_Ration_split_transductive"
     "PL_Ration_split_SS"
     "PL_best_Ration_split_transductive"
@@ -49,9 +48,9 @@ do
     echo "Running ${framework}"
     FRAMEWORK="${framework}:latest"
     CUSTOM_ARGS="--framework $FRAMEWORK --benchmark $BENCHMARK --constraint $CONSTRAINT"
-    $MYDIR/run_benchmark_local.sh --branch $BRANCH $CUSTOM_ARGS $DEFAULT_ARGS "-m aws -p 5000"
+    $MYDIR/run_benchmark_local.sh --branch $BRANCH $CUSTOM_ARGS $DEFAULT_ARGS --extra_args "-m aws -p 5000"
 
-    sleep 30000
+    sleep 27000
 done
 
 echo "All benchmarks executed."
